@@ -1,0 +1,18 @@
+#title{
+    margin: 10px;
+}
+
+#buttons {
+    display: flex;
+    margin: 10px;
+}
+
+#pre-set-row{
+    margin-right: 50px;
+}
+
+#query-input-area {
+    margin: 10px;
+    height: 200px;
+    width: 400px;
+}
