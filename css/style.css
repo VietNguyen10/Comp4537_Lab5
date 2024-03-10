@@ -2,17 +2,40 @@
     margin: 10px;
 }
 
-#buttons {
-    display: flex;
-    margin: 10px;
+#pre-set-row{
+    margin-left: 10px;
+
+    margin-right: 50px;
 }
 
-#pre-set-row{
-    margin-right: 50px;
+#submit-query {
+    margin-left: 10px;
+    display: block;
 }
 
 #query-input-area {
     margin: 10px;
     height: 200px;
     width: 400px;
+}
+
+#result-area {
+    margin: 10px;
+    height: 200px;
+    width: 400px;
+    overflow: auto;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+
+#result-table {
+    width: 100%; /* Ensure table takes full width of its container */
+    border-collapse: collapse; /* Optional: Merge table borders */
+}
+
+#result-table th,
+#result-table td {
+    border: 1px solid black; /* Optional: Add border to table cells */
+    padding: 8px; /* Optional: Add padding to table cells */
+    text-align: center; /* Optional: Align text to the left */
 }

@@ -17,18 +17,33 @@
     <div id="title">
         <h1>Home Page</h1>
     </div>
-
     
-    <textarea id="query-input-area">
-        
-    </textarea>
+    <p id="status"></p>
+    
     <div id="buttons">
         <!-- Button for adding pre set rows -->
         <button id="pre-set-row">Pre-set row</button>
-      
-        <!-- Button for submitting SQL query -->
-        <button id="submit-query">Submit</button>
+    
+        <a href="https://www.w3schools.com/sql/default.asp">
+            <button id="help" >SQL Document</button>
+        </a>
     </div>
+    
+    <textarea id="query-input-area"></textarea>
+  
+    <!-- Button for submitting SQL query -->
+    <button id="submit-query">Submit</button>
+
+    <div id="result-area">
+        <table id="result-table">
+            <tr>
+                <th>Patient ID</th>
+                <th>Name</th>
+                <th>Date of birth</th>
+            </tr>
+        </table>
+    </div>
+
 
 </body>
 </html>
