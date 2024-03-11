@@ -70,7 +70,6 @@ class Client {
             this.xhttp.send(`?command=${query}`);
             
             this.xhttp.onload = function () {
-                console.log(this.status);
                 const response = JSON.parse(this.responseText)
                 status_area.innerHTML = uMessage.STATUS + response.response;
             }
@@ -106,7 +105,8 @@ class Client {
                     document.getElementById('result-table').innerHTML = tableresult;
                     status_area.innerHTML = uMessage.SUCCESS;
                 } else {
-                    status_area.innerHTML = uMessage.FAILED;
+                    const response = JSON.parse(this.responseText);
+                    status_area.innerHTML = uMessage.STATUS + response.response;
                 }
             };
         } 
@@ -115,9 +115,14 @@ class Client {
             this.xhttp.open("GET", `https://strahd2.com/COMP4537/labs/5/api/database?command=${encodeURI(query.toLowerCase())}`, true);
             this.xhttp.send();
             this.xhttp.onreadystatechange = function () {
+                const response = JSON.parse(this.responseText);
                 if (this.readyState == 4) {
                     if(this.status == 403){
                         status_area.innerHTML = uMessage.INVALID_QUERY;
+                    } 
+
+                    if(this.status == 400) {
+                        status_area.innerHTML = uMessage.STATUS + response.response;
                     }
                 }
             }
