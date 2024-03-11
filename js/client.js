@@ -1,3 +1,10 @@
+/**
+ * Implementation references:
+ * Chat GPT
+ * Youtube
+ * W3School
+ * BCIT Learning hub
+ */
 window.uMessage = user_facing_message;
 
 class Client {
@@ -69,7 +76,7 @@ class Client {
             }
         } 
         
-        else if(firstWord == "SELECT" || firstWord == "select") {
+        if(firstWord == "SELECT" || firstWord == "select") {
             this.xhttp.open("GET", `https://strahd2.com/COMP4537/labs/5/api/database?command=${encodeURI(query.toLowerCase())}`, true);
             this.xhttp.send();
             
@@ -102,15 +109,21 @@ class Client {
                     status_area.innerHTML = uMessage.FAILED;
                 }
             };
-            
         } 
-        
+
         else {
-            window.alert(uMessage.INVALID_QUERY);
+            this.xhttp.open("GET", `https://strahd2.com/COMP4537/labs/5/api/database?command=${encodeURI(query.toLowerCase())}`, true);
+            this.xhttp.send();
+            this.xhttp.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if(this.status == 403){
+                        status_area.innerHTML = uMessage.INVALID_QUERY;
+                    }
+                }
+            }
         }
     }
 
-    // Check if the first word of the query is SELECT or INSERT
     extractQuery(word) {
         let firstWord = ""
         let query = word.toLowerCase();
